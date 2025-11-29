@@ -1,0 +1,28 @@
+/* src/styles/Home.module.css */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+}
+
+.section {
+  padding: var(--section-padding-y) 0;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+/* Example of alternating background for contrast */
+.section:nth-child(odd) {
+  background-color: var(--bg-alt);
+}
