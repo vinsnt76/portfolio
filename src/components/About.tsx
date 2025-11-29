@@ -1,19 +1,19 @@
 import React from 'react';
 
-const About: React.FC = () => {
-    return (
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Welcome to my portfolio! I am a passionate developer with experience in building web applications.
-                My journey in tech has been exciting, and I love creating solutions that make a difference.
-            </p>
-            <p>
-                In this portfolio, you will find some of the projects I have worked on, showcasing my skills and
-                creativity. Feel free to reach out if you would like to collaborate or learn more about my work!
-            </p>
-        </section>
-    );
-};
+const About: React.FC = () => (
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a technical architect, automation consultant, and designer with over 15 years of experience across travel, digital marketing, and AI-driven workflows. I specialize in building scalable systems, optimizing team processes, and transforming business logic into modular, maintainable solutions.
+    </p>
+    <ul>
+      <li>Expert in prompt engineering, chatbot design, and campaign automation</li>
+      <li>Skilled in SEO, PPC, CRM, and analytics platforms</li>
+      <li>Hands-on with tools like n8n, Voiceflow, Airtable, GA4, and Looker Studio</li>
+      <li>Fluent in HTML, CSS, JavaScript, Python, and JSON</li>
+      <li>Experienced in travel systems like Amadeus, Calypso-net, and Galileo</li>
+    </ul>
+  </section>
+);
 
 export default About;

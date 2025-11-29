@@ -1,14 +1,44 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #0070f3;
+  --secondary-background: #f4f4f4;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+html.dark {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: #0070f3;
+  --secondary-background: #1e1e1e;
+  --border-color: #333333;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--secondary-background);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 a {
@@ -16,30 +46,31 @@ a {
     color: inherit;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+section {
+    padding: 60px 20px;
+    margin: 0 auto;
+    max-width: 1000px;
+    border-bottom: 1px solid var(--border-color);
+    /* Adjust this value based on the height of your fixed header */
+    scroll-margin-top: 70px; 
 }
 
-.header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-
-.footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
+section:last-of-type {
+    border-bottom: none;
 }
 
 .hero {
-    background: #0070f3;
+    background: var(--primary-color);
     color: #fff;
     padding: 50px 0;
     text-align: center;
+}
+
+.footer {
+    background: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
 }
 
 .projects {
@@ -49,13 +80,13 @@ a {
 }
 
 .project-card {
-    background: #fff;
-    border: 1px solid #ddd;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     margin: 10px;
     padding: 20px;
     flex: 1 1 calc(30% - 20px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--shadow-color);
 }
 
 .contact-form {
@@ -67,12 +98,12 @@ a {
 .contact-form textarea {
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
 }
 
 .contact-form button {
-    background: #0070f3;
+    background: var(--primary-color);
     color: #fff;
     border: none;
     padding: 10px;
