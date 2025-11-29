@@ -1,56 +1,46 @@
-// src/pages/index.tsx
-import type { NextPage } from 'next';
+// src/components/SEO/index.tsx
 import Head from 'next/head';
-import Header from '../components/Header';
-import SEO from '../components/SEO';
-import About from '../components/About';
-import Experience from '../components/Experience';
-import Skills from '../components/Skills';
-import Projects from '../components/Projects';
-import styles from '../styles/Home.module.css';
 
-const Home: NextPage = () => {
+interface SEOProps {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+}
+
+const SEO = ({
+  title = "Vinnie Baker | Technical Architect & Designer",
+  description = "Portfolio of Vinnie Baker, a technical architect specializing in cloud automation, design systems, and full-stack development.",
+  keywords = "Technical Architect, Automation Consultant, Designer, Next.js, React, TypeScript, AWS",
+  ogImage = "/og-image.png",
+}: SEOProps) => {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const fullOgImageUrl = `${siteUrl}${ogImage}`;
+
   return (
-    <>
-      <SEO />
+    <Head>
+      {/* Standard SEO */}
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+      <meta name="author" content="Vinnie Baker" />
+      <link rel="canonical" href={siteUrl} />
 
-      <Header />
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={siteUrl} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={fullOgImageUrl} />
 
-      <main className={styles.main}>
-        <div className={styles.container}>
-          <section id="home" className={styles.section}>
-            <h1>Welcome to My Portfolio</h1>
-            <p>Showcasing technical architecture, automation, and design.</p>
-          </section>
-
-          <section id="about" className={styles.section}>
-            <h2>About Me</h2>
-            <About />
-          </section>
-
-          <section id="experience" className={styles.section}>
-            <h2>Experience</h2>
-            <Experience />
-          </section>
-
-          <section id="skills" className={styles.section}>
-            <h2>Skills</h2>
-            <Skills />
-          </section>
-
-          <section id="projects" className={styles.section}>
-            <h2>Projects</h2>
-            <Projects />
-          </section>
-
-          <section id="contact" className={styles.section}>
-            <h2>Contact</h2>
-            <p>Feel free to reach out via email at <a href="mailto:vinnie.baker@example.com" className={styles.contactLink}>vinnie.baker@example.com</a>.</p>
-          </section>
-        </div>
-      </main>
-    </>
+      {/* Twitter */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content={siteUrl} />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={fullOgImageUrl} />
+    </Head>
   );
 };
 
-export default Home;
+export default SEO;
