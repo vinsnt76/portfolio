@@ -1,46 +1,36 @@
-// src/components/SEO/index.tsx
-import Head from 'next/head';
+// src/components/Header/index.tsx
+import { useScrollspy } from '../../hooks/useScrollspy';
+import { useTheme } from '../../hooks/useTheme';
+import styles from './Header.module.css';
 
-interface SEOProps {
-  title?: string;
-  description?: string;
-  keywords?: string;
-  ogImage?: string;
-}
+const SECTIONS = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
 
-const SEO = ({
-  title = "Vinnie Baker | Technical Architect & Designer",
-  description = "Portfolio of Vinnie Baker, a technical architect specializing in cloud automation, design systems, and full-stack development.",
-  keywords = "Technical Architect, Automation Consultant, Designer, Next.js, React, TypeScript, AWS",
-  ogImage = "/og-image.png",
-}: SEOProps) => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  const fullOgImageUrl = `${siteUrl}${ogImage}`;
+const Header = () => {
+  const activeSection = useScrollspy(SECTIONS);
+  const { toggleTheme } = useTheme();
 
   return (
-    <Head>
-      {/* Standard SEO */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <meta name="author" content="Vinnie Baker" />
-      <link rel="canonical" href={siteUrl} />
-
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={siteUrl} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={fullOgImageUrl} />
-
-      {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={siteUrl} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={fullOgImageUrl} />
-    </Head>
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <div className={styles.logo}>Vinnie Baker</div>
+        <ul className={styles.navList}>
+          {SECTIONS.map((section) => (
+            <li key={section}>
+              <a
+                href={`#${section}`}
+                className={`${styles.navLink} ${activeSection === section ? styles.navLinkActive : ''}`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <button onClick={toggleTheme} className={styles.themeToggle} aria-label="Toggle theme">
+          ☀️/🌙
+        </button>
+      </nav>
+    </header>
   );
 };
 
-export default SEO;
+export default Header;
