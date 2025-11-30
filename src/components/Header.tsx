@@ -1,12 +1,10 @@
 import React from 'react';
-import { useScrollspy } from '../hooks/useScrollspy';
 import { useTheme } from '../hooks/useTheme';
 import styles from '../styles/Header.module.css';
 
 const SECTIONS = ['hero', 'about', 'experience', 'skills', 'projects', 'contact'];
 
 const Header: React.FC = () => {
-  const activeSection = useScrollspy(SECTIONS);
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -18,7 +16,7 @@ const Header: React.FC = () => {
             <li key={section}>
               <a
                 href={`#${section}`}
-                className={`${styles.navLink} ${activeSection === section ? styles.navLinkActive : ''}`}
+                className={styles.navLink}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>
