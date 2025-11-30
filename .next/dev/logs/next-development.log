@@ -202,3 +202,309 @@ Module not found: Can't resolve '@/components/SEO'
 Import map: aliased to relative './src/components/SEO' inside of [project]/portfolio
 
 https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:2:1
+Module not found: Can't resolve '../hooks/useScrollspy'
+  1 | import React from 'react';
+> 2 | import { useScrollspy } from '../hooks/useScrollspy';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { useTheme } from '../hooks/useTheme';
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:3:1
+Module not found: Can't resolve '../hooks/useTheme'
+  1 | import React from 'react';
+  2 | import { useScrollspy } from '../hooks/useScrollspy';
+> 3 | import { useTheme } from '../hooks/useTheme';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+  6 | const SECTIONS = ['hero', 'about', 'experience', 'skills', 'projects', 'contact'];
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/pages/index.tsx:2:1
+Module not found: Can't resolve '@/components/SEO'
+  1 | import Header from '@/components/Header';
+> 2 | import SEO from '@/components/SEO';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import About from '@/components/About';
+  4 | import Experience from '@/components/Experience';
+  5 | import Skills from '@/components/Skills';
+
+Import map: aliased to relative './src/components/SEO' inside of [project]/portfolio
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:2:1
+Module not found: Can't resolve '../hooks/useScrollspy'
+  1 | import React from 'react';
+> 2 | import { useScrollspy } from '../hooks/useScrollspy';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { useTheme } from '../hooks/useTheme';
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:3:1
+Module not found: Can't resolve '../hooks/useTheme'
+  1 | import React from 'react';
+  2 | import { useScrollspy } from '../hooks/useScrollspy';
+> 3 | import { useTheme } from '../hooks/useTheme';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+  6 | const SECTIONS = ['hero', 'about', 'experience', 'skills', 'projects', 'contact'];
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/pages/index.tsx:2:1
+Module not found: Can't resolve '@/components/SEO'
+  1 | import Header from '@/components/Header';
+> 2 | import SEO from '@/components/SEO';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import About from '@/components/About';
+  4 | import Experience from '@/components/Experience';
+  5 | import Skills from '@/components/Skills';
+
+Import map: aliased to relative './src/components/SEO' inside of [project]/portfolio
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:2:1
+Module not found: Can't resolve '../hooks/useScrollspy'
+  1 | import React from 'react';
+> 2 | import { useScrollspy } from '../hooks/useScrollspy';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { useTheme } from '../hooks/useTheme';
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:3:1
+Module not found: Can't resolve '../hooks/useTheme'
+  1 | import React from 'react';
+  2 | import { useScrollspy } from '../hooks/useScrollspy';
+> 3 | import { useTheme } from '../hooks/useTheme';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+  6 | const SECTIONS = ['hero', 'about', 'experience', 'skills', 'projects', 'contact'];
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/pages/index.tsx:2:1
+Module not found: Can't resolve '@/components/SEO'
+  1 | import Header from '@/components/Header';
+> 2 | import SEO from '@/components/SEO';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import About from '@/components/About';
+  4 | import Experience from '@/components/Experience';
+  5 | import Skills from '@/components/Skills';
+
+Import map: aliased to relative './src/components/SEO' inside of [project]/portfolio
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:2:1
+Module not found: Can't resolve '../hooks/useScrollspy'
+  1 | import React from 'react';
+> 2 | import { useScrollspy } from '../hooks/useScrollspy';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { useTheme } from '../hooks/useTheme';
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:3:1
+Module not found: Can't resolve '../hooks/useTheme'
+  1 | import React from 'react';
+  2 | import { useScrollspy } from '../hooks/useScrollspy';
+> 3 | import { useTheme } from '../hooks/useTheme';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+  6 | const SECTIONS = ['hero', 'about', 'experience', 'skills', 'projects', 'contact'];
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/pages/index.tsx:2:1
+Module not found: Can't resolve '@/components/SEO'
+  1 | import Header from '@/components/Header';
+> 2 | import SEO from '@/components/SEO';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import About from '@/components/About';
+  4 | import Experience from '@/components/Experience';
+  5 | import Skills from '@/components/Skills';
+
+Import map: aliased to relative './src/components/SEO' inside of [project]/portfolio
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:2:1
+Module not found: Can't resolve '../hooks/useScrollspy'
+  1 | import React from 'react';
+> 2 | import { useScrollspy } from '../hooks/useScrollspy';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { useTheme } from '../hooks/useTheme';
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:3:1
+Module not found: Can't resolve '../hooks/useTheme'
+  1 | import React from 'react';
+  2 | import { useScrollspy } from '../hooks/useScrollspy';
+> 3 | import { useTheme } from '../hooks/useTheme';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+  6 | const SECTIONS = ['hero', 'about', 'experience', 'skills', 'projects', 'contact'];
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/pages/index.tsx:2:1
+Module not found: Can't resolve '@/components/SEO'
+  1 | import Header from '@/components/Header';
+> 2 | import SEO from '@/components/SEO';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import About from '@/components/About';
+  4 | import Experience from '@/components/Experience';
+  5 | import Skills from '@/components/Skills';
+
+Import map: aliased to relative './src/components/SEO' inside of [project]/portfolio
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:2:1
+Module not found: Can't resolve '../hooks/useScrollspy'
+  1 | import React from 'react';
+> 2 | import { useScrollspy } from '../hooks/useScrollspy';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { useTheme } from '../hooks/useTheme';
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/components/Header.tsx:3:1
+Module not found: Can't resolve '../hooks/useTheme'
+  1 | import React from 'react';
+  2 | import { useScrollspy } from '../hooks/useScrollspy';
+> 3 | import { useTheme } from '../hooks/useTheme';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import styles from '../styles/Header.module.css';
+  5 |
+  6 | const SECTIONS = ['hero', 'about', 'experience', 'skills', 'projects', 'contact'];
+
+Import traces:
+  Browser:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+  SSR:
+    ./portfolio/src/components/Header.tsx
+    ./portfolio/src/pages/index.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:13:57.300] Browser ERROR   ./portfolio/src/pages/index.tsx:2:1
+Module not found: Can't resolve '@/components/SEO'
+  1 | import Header from '@/components/Header';
+> 2 | import SEO from '@/components/SEO';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import About from '@/components/About';
+  4 | import Experience from '@/components/Experience';
+  5 | import Skills from '@/components/Skills';
+
+Import map: aliased to relative './src/components/SEO' inside of [project]/portfolio
+
+https://nextjs.org/docs/messages/module-not-found
