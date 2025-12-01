@@ -4,6 +4,7 @@ import { useTheme } from '@/hooks/useTheme';
 import { useScrollLogic } from '@/hooks/useScrollLogic';
 import { useMenuToggle } from '@/hooks/useMenuToggle';
 import { MobileMenu } from './MobileMenu';
+import { useConsent } from '@/context/ConsentContext';
 import clsx from 'clsx';
 
 // --- Icon component for the Logo ---
@@ -27,10 +28,9 @@ export const scrollToSection = (id: string) => {
   }
 };
 
-const Header: React.FC<{ userHasConsented: boolean }> = ({
-  userHasConsented,
-}) => {
+const Header: React.FC = () => {
   // --- State and Logic Consumption ---
+  const { userHasConsented } = useConsent();
   const { theme, toggleTheme } = useTheme(userHasConsented);
   const { isSticky } = useScrollLogic();
   const { isMenuOpen, toggleMenu, closeMenu } = useMenuToggle();

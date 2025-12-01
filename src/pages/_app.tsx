@@ -1,30 +1,19 @@
-import React, { useState, useEffect } from 'react';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
+import { ConsentProvider } from '@/context/ConsentContext';
 import ConsentBanner from '@/components/ConsentBanner';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [userHasConsented, setUserHasConsented] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    // This effect runs only on the client, after hydration
-    setIsClient(true);
-    if (window.localStorage.getItem('userConsent') === 'true') {
-      setUserHasConsented(true);
-    }
-  }, []);
-
-  const handleConsent = () => {
-    setUserHasConsented(true);
-  };
-
   return (
-    <>
-      <Component {...pageProps} userHasConsented={userHasConsented} />
-      {/* Only render the banner on the client if consent has not been given */}
-      {isClient && !userHasConsented && <ConsentBanner onConsent={handleConsent} />}
-    </>
+    <ConsentProvider>
+      <Component {...pageProps} />
+      {/*
+        The ConsentBanner now lives inside the provider's scope.
+        It will use the `useConsent` hook internally to manage its visibility
+        and update the global state.
+      */}
+      <ConsentBanner />
+    </ConsentProvider>
   );
 }
 
