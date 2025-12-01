@@ -9,10 +9,9 @@ const nextConfig = {
         hostname: 'avatars.githubusercontent.com', // For GitHub profile pictures
       },
       {
-        protocol: 'https'
-        // Add any other necessary image hostnames here, for example:
-        // hostname: 'res.cloudinary.com', // Common CDN for project images
-        // hostname: 'images.unsplash.com',
+        protocol: 'https',
+        // Common CDN for project images
+        hostname: 'res.cloudinary.com',
       },
     ],
   },
@@ -69,4 +68,4 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-export default nextConfig;
+module.exports = nextConfig;

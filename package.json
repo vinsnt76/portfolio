@@ -1,7 +1,6 @@
 {
   "name": "myportfolio",
   "version": "1.0.0",
-  "type": "module",
   "description": "Vinnie Baker - Modern Portfolio Website",
   "main": "next.config.js",
   "scripts": {
