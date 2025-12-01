@@ -5,8 +5,8 @@
   align-items: center;
   text-align: center;
   padding: 4rem 2rem;
-  background-color: var(--background-color);
-  min-height: 60vh;
+  background-color: var(--bg);
+  min-height: 50vh;
 }
 
 .content {
@@ -14,38 +14,35 @@
 }
 
 .headline {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-family: var(--font-heading);
+  color: var(--text);
   margin-bottom: 1rem;
 }
 
 .intro {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
+  font-family: var(--font-body);
+  color: var(--text);
   margin-bottom: 2rem;
 }
 
 .ctaButton {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--font-accent);
+  font-weight: 700;
   color: #fff;
-  background-color: var(--primary-color);
+  background-color: var(--primary);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius);
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color var(--transition-fast);
 }
 
 .ctaButton:hover {
-  background-color: var(--primary-color-dark);
+  background-color: var(--accent);
   cursor: pointer;
 }
 
-/* Add media query for responsiveness if needed */
 @media (max-width: 768px) {
   .headline {
     font-size: 2rem;

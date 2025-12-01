@@ -11,7 +11,12 @@ export function useTheme() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    document.documentElement.dataset.theme = theme;
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
     localStorage.setItem('theme', theme);
   }, [theme]);
 

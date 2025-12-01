@@ -14,8 +14,8 @@ export default function Profile() {
   return (
     <>
       <Head>
-        <title>Profile – Vinnie Baker</title>
-        <meta name="description" content="Portfolio profile page for Vinnie Baker" />
+        <title>Profile – Vince Baker</title>
+        <meta name="description" content="Portfolio profile page for Vince Baker" />
       </Head>
       <Header />
       <Welcome />

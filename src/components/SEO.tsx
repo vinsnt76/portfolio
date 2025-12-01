@@ -7,7 +7,7 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({
   title = 'Vinnie Baker - Portfolio',
-  description = 'The personal portfolio of Vinnie Baker, a Technical Architect & Digital Strategist.',
+  description = 'The personal portfolio of Vince Baker, a Technical Architect & Digital Strategist.',
 }) => {
   return (
     <Head>
@@ -20,7 +20,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Vinnie Baker's Portfolio" />
+      <meta property="og:site_name" content="Vince Baker's Portfolio" />
     </Head>
   );
 };
