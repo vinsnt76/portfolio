@@ -11,8 +11,8 @@ export default function Profile() {
             Vincent Baker
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-12">
-            Technical Architect, Workflow Lead, and Freelance AI & Automation Consultant.
-            I specialize in building scalable systems, optimizing workflows, and designing
+            Technical Architect, Digital Strategist & Automation Consultant.
+            I specialize in building scalable systems, optimising workflows, and designing
             recruiter‑friendly portfolio experiences.
           </p>
 
