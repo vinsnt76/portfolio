@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Briefcase } from 'lucide-react';
+import { useTheme } from '@/hooks/useTheme';
 
 // --- Icon component for the Logo ---
 const VinnieIcon = ({ className }: { className: string }) => (
@@ -23,33 +24,23 @@ const scrollToSection = (id: string) => {
   }
 };
 
-const Header: React.FC = () => {
-  const [theme, setTheme] = useState('light');
+const Header: React.FC<{ userHasConsented: boolean }> = ({
+  userHasConsented,
+}) => {
+  // The `useTheme` hook now correctly receives the consent status from the parent page,
+  // which gets it from _app.tsx.
+  const { theme, toggleTheme } = useTheme(userHasConsented);
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // SSR-safe effect to set initial theme and handle scroll
+  // Effect for handling scroll behavior
   useEffect(() => {
-    // Set initial theme from localStorage or system preference
-    const savedTheme = window.localStorage.getItem('theme') || 
-                       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    setTheme(savedTheme);
-
-    // Handle scroll behavior for sticky header
     const handleScroll = () => {
       setIsSticky(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Theme toggle logic, now self-contained and SSR-safe
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    window.localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-  };
 
   const handleLinkClick = (href: string) => {
     scrollToSection(href);

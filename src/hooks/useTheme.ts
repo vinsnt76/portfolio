@@ -1,34 +1,38 @@
 import { useState, useEffect, useCallback } from 'react';
 
+type Theme = 'light' | 'dark';
+
 /**
  * Manages the application's theme (light/dark).
- * For GDPR/ePrivacy compliance, it only persists the theme to localStorage if consent is given.
+ * It syncs with the 'dark' class on the <html> element, which is initially set by an inline script in _document.tsx to prevent FOUC.
  * @param {boolean} hasConsent - Flag indicating if the user has consented to storage.
  */
 export const useTheme = (hasConsent: boolean) => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    let initialTheme = prefersDark ? 'dark' : 'light';
-
-    if (hasConsent) {
-      const storedTheme = window.localStorage.getItem('theme');
-      initialTheme = storedTheme || initialTheme;
-    }
+    // The inline script has already set the correct theme class on the server.
+    // This effect simply reads that state to sync React's state with the DOM.
+    const initialTheme = document.documentElement.classList.contains('dark')
+      ? 'dark'
+      : 'light';
     setTheme(initialTheme);
-  }, [hasConsent]);
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    if (hasConsent) {
-      window.localStorage.setItem('theme', theme);
-    }
-  }, [theme, hasConsent]);
+  }, []);
 
   const toggleTheme = useCallback(() => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  }, []);
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+
+      // Apply class to the DOM
+      document.documentElement.classList.toggle('dark', newTheme === 'dark');
+
+      // Persist to localStorage only if consent is given
+      if (hasConsent) {
+        window.localStorage.setItem('theme', newTheme);
+      }
+      return newTheme;
+    });
+  }, [hasConsent]);
 
   return { theme, toggleTheme };
 };
