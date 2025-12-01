@@ -1,28 +1,27 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
-export type Theme = 'light' | 'dark';
+type Theme = 'light' | 'dark';
 
-export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'light';
-    const stored = localStorage.getItem('theme') as Theme | null;
-    return stored ?? 'light';
-  });
+export const useTheme = (): [Theme, () => void] => {
+  const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
+    const localTheme = window.localStorage.getItem('theme') as Theme | null;
+    if (localTheme) {
+      setTheme(localTheme);
+      document.documentElement.classList.toggle('dark', localTheme === 'dark');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark');
+      document.documentElement.classList.add('dark');
     }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = useCallback(() => {
-    setTheme((t) => (t === 'light' ? 'dark' : 'light'));
   }, []);
 
-  return { theme, toggleTheme };
-}
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    window.localStorage.setItem('theme', newTheme);
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+  };
+
+  return [theme, toggleTheme];
+};
