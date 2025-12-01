@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '@/hooks/useTheme';
 import { Menu, X, Sun, Moon, Briefcase } from 'lucide-react';
 
 // --- Icon component for the Logo ---
@@ -25,18 +24,32 @@ const scrollToSection = (id: string) => {
 };
 
 const Header: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+  const [theme, setTheme] = useState('light');
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Handle scroll behavior for sticky header
+  // SSR-safe effect to set initial theme and handle scroll
   useEffect(() => {
+    // Set initial theme from localStorage or system preference
+    const savedTheme = window.localStorage.getItem('theme') || 
+                       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(savedTheme);
+
+    // Handle scroll behavior for sticky header
     const handleScroll = () => {
       setIsSticky(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Theme toggle logic, now self-contained and SSR-safe
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    window.localStorage.setItem('theme', newTheme);
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+  };
 
   const handleLinkClick = (href: string) => {
     scrollToSection(href);

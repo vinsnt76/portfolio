@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export default function Contact() {
   const [status, setStatus] = useState<null | 'idle' | 'sending' | 'success' | 'error'>(null);
@@ -35,7 +35,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-16">
+    <section id="contact" className="py-16 text-center">
       <h2>Contact Me</h2>
       <form onSubmit={onSubmit} className="space-y-4 max-w-lg mx-auto" noValidate>
         {/* Honeypot field (hidden from humans) */}
@@ -65,4 +65,4 @@ export default function Contact() {
       </form>
     </section>
   );
-};
+}
