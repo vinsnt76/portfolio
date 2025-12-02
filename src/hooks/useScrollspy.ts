@@ -1,35 +1,36 @@
 import { useState, useEffect } from 'react';
 
-export const useScrollspy = (ids: string[], options?: IntersectionObserverInit) => {
-  const [activeId, setActiveId] = useState<string>('');
+/**
+ * A custom hook that detects which section is currently in the viewport.
+ * @param sectionIds - An array of element IDs to track.
+ * @param options - Optional IntersectionObserver options.
+ * @returns The ID of the currently active section.
+ */
+export const useScrollspy = (
+  sectionIds: string[],
+  options?: IntersectionObserverInit
+): string => {
+  const [activeSection, setActiveSection] = useState<string>('');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+            setActiveSection(entry.target.id);
           }
         });
       },
-      {
-        rootMargin: '0px 0px -80% 0px', // Adjust this to trigger highlighting at the right scroll position
-        ...options,
-      }
+      { rootMargin: '-50% 0px -50% 0px', ...options } // Set rootMargin to trigger when section is in the middle of the screen
     );
 
-    ids.forEach((id) => {
+    sectionIds.forEach((id) => {
       const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
+      if (element) observer.observe(element);
     });
 
-    return () => ids.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) observer.unobserve(element);
-    });
-  }, [ids, options]);
+    return () => observer.disconnect();
+  }, [sectionIds, options]);
 
-  return activeId;
+  return activeSection;
 };

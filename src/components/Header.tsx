@@ -5,6 +5,7 @@ import { useScrollLogic } from '@/hooks/useScrollLogic';
 import { useMenuToggle } from '@/hooks/useMenuToggle';
 import { MobileMenu } from './MobileMenu';
 import { useConsent } from '@/context/ConsentContext';
+import { useScrollspy } from '@/hooks/useScrollspy';
 import clsx from 'clsx';
 
 // --- Icon component for the Logo ---
