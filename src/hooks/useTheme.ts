@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 
 /**
  * Custom hook for managing the light/dark theme state.
- * It reads the initial state from localStorage or system preferences (prefers-color-scheme).
- * It persists the theme selection to localStorage, respecting the userHasConsented flag.
- * * @param userHasConsented Boolean flag indicating if the user has consented to local storage usage.
+ * @param userHasConsented Boolean flag indicating if the user has consented to local storage usage.
  * @returns An object containing the current theme ('light' or 'dark') and a toggle function.
  */
 export const useTheme = (userHasConsented: boolean = true) => {
@@ -12,22 +10,19 @@ export const useTheme = (userHasConsented: boolean = true) => {
 
   // --- 1. Initial Load Effect (Runs once on mount) ---
   useEffect(() => {
-    let initialTheme: 'light' | 'dark';
+    // 1. Default to system preference to guarantee assignment
+    let initialTheme: 'light' | 'dark' = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-    // 1. Try to load from localStorage if consent is given
+    // 2. Override with localStorage value if consent is given and a value exists
     if (userHasConsented) {
       const savedTheme = window.localStorage.getItem('theme');
       if (savedTheme === 'light' || savedTheme === 'dark') {
         initialTheme = savedTheme;
       }
     }
-
-    // 2. Fallback to system preference if no saved theme or no consent
-    if (!initialTheme) {
-      initialTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-
+    
     setTheme(initialTheme);
+    // Apply the class immediately to prevent flicker
     document.documentElement.classList.toggle('dark', initialTheme === 'dark');
   }, [userHasConsented]); // Re-run if consent state changes
 
