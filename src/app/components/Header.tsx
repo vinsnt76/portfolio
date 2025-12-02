@@ -2,9 +2,13 @@ import React from 'react';
 import { Menu, X, Sun, Moon, Briefcase } from 'lucide-react';
 import { useTheme } from '@/hooks/useTheme';
 import { useScrollLogic } from '@/hooks/useScrollLogic';
-import { useMenuToggle } from '@/hooks/useMenuToggle'; 
-import { MobileMenu } from '@/app/components/MobileMenu';
+import { useMenuToggle } from '@/hooks/useMenuToggle';
+import { useTheme } from '@/app/lib/hooks/useTheme';
+import { useScrollLogic } from '@/app/lib/hooks/useScrollLogic';
+import { useMenuToggle } from '@/app/lib/hooks/useMenuToggle';
+import { MobileMenu } from './MobileMenu';
 import { useScrollspy } from '@/hooks/useScrollspy';
+import { useScrollspy } from '@/app/lib/hooks/useScrollspy';
 import { useConsent } from '@/context/ConsentContext';
 import clsx from 'clsx';
 
