@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// Define the shape of the form data
 interface ContactFormData {
   name: string;
   email: string;
@@ -13,21 +14,43 @@ const Contact: React.FC = () => {
     message: '',
   });
 
-// src/components/Contact.tsx - inside the handleChange function
-
+  // Handles updates to form fields
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  const { name, value } = e.target;
-  // FIX: Explicitly type 'prev' with the ContactFormData interface
-  setFormData((prev: ContactFormData) => ({ // <--- Change applied here
-    ...prev,
-    [name]: value,
-  }));
+    const { name, value } = e.target;
+    
+    // Explicitly type 'prev' to satisfy TypeScript's strict mode (TS7006)
+    setFormData((prev: ContactFormData) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
+  // Handles form submission logic
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    
+    // 1. Send data to your Next.js API route: /api/contact
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        // Clear the form
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        const errorData = await response.json();
+        alert(`Failed to send message: ${errorData.error || 'Server error'}`);
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('There was an error submitting the form. Please try again later.');
+    }
   };
 
   return (
